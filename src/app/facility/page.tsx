@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { ContentArea, VStack } from '@/components/layout/PageLayout';
 import {
   BuildingOfficeIcon,
   WrenchScrewdriverIcon,
@@ -102,32 +103,34 @@ export default function FacilityDashboard() {
   };
 
   return (
-    <div className="p-6 pt-20 lg:pt-6">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-          Facility Management Dashboard
-        </h1>
-        <p className="mt-2 text-sm text-gray-600">
-          Monitor and manage Furfield veterinary facility operations, maintenance, and space utilization
-        </p>
-        <div className="mt-4 flex items-center space-x-4">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-            <CheckCircleIcon className="w-4 h-4 mr-1" />
-            All Systems Operational
-          </span>
-          <span className="text-sm text-gray-500">
-            Last updated: {new Date().toLocaleString()}
-          </span>
+    <ContentArea className="h-screen overflow-hidden" maxWidth="7xl">
+      <VStack className="h-full">
+        {/* Header */}
+        <div className="px-6 pt-6 pb-2 mb-8 shrink-0">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+            Facility Management Dashboard
+          </h1>
+          <p className="mt-2 text-sm text-gray-600">
+            Monitor and manage Furfield veterinary facility operations, maintenance, and space utilization
+          </p>
+          <div className="mt-4 flex items-center space-x-4">
+            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+              <CheckCircleIcon className="w-4 h-4 mr-1" />
+              All Systems Operational
+            </span>
+            <span className="text-sm text-gray-500">
+              Last updated: {new Date().toLocaleString()}
+            </span>
+          </div>
         </div>
-      </div>
-
-      {/* Stats Overview */}
+        
+        <div className="px-6 overflow-y-auto flex-1">
+        {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div className="bg-white overflow-hidden shadow rounded-lg">
           <div className="p-5">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <BuildingOfficeIcon className="h-6 w-6 text-blue-400" />
               </div>
               <div className="ml-5 w-0 flex-1">
@@ -143,7 +146,7 @@ export default function FacilityDashboard() {
         <div className="bg-white overflow-hidden shadow rounded-lg">
           <div className="p-5">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <WrenchScrewdriverIcon className="h-6 w-6 text-orange-400" />
               </div>
               <div className="ml-5 w-0 flex-1">
@@ -159,7 +162,7 @@ export default function FacilityDashboard() {
         <div className="bg-white overflow-hidden shadow rounded-lg">
           <div className="p-5">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <CheckCircleIcon className="h-6 w-6 text-green-400" />
               </div>
               <div className="ml-5 w-0 flex-1">
@@ -175,7 +178,7 @@ export default function FacilityDashboard() {
         <div className="bg-white overflow-hidden shadow rounded-lg">
           <div className="p-5">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <div className="shrink-0">
                 <ClockIcon className="h-6 w-6 text-purple-400" />
               </div>
               <div className="ml-5 w-0 flex-1">
@@ -263,7 +266,7 @@ export default function FacilityDashboard() {
               <div className="space-y-4">
                 {recentActivity.map((activity) => (
                   <div key={activity.id} className="flex items-start space-x-3">
-                    <div className={`flex-shrink-0 w-2 h-2 rounded-full mt-2 ${
+                    <div className={`shrink-0 w-2 h-2 rounded-full mt-2 ${
                       activity.type === 'success' ? 'bg-green-400' :
                       activity.type === 'error' ? 'bg-red-400' : 'bg-blue-400'
                     }`} />
@@ -315,6 +318,8 @@ export default function FacilityDashboard() {
           </div>
         </div>
       </div>
-    </div>
+        </div>
+      </VStack>
+    </ContentArea>
   );
 }
