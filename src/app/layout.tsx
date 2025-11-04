@@ -23,13 +23,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full overflow-hidden">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full m-0 p-0`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full m-0 p-0 overflow-hidden`}
         style={{ background: 'transparent' }}
         suppressHydrationWarning={true}
       >
-        <div className="h-full">
+        <div className="h-full overflow-y-auto">
           {children}
         </div>
       </body>

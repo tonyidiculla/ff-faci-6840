@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ContentArea, VStack } from '@/components/layout/PageLayout';
 import {
   BuildingOfficeIcon,
   PlusIcon,
@@ -173,18 +174,19 @@ export default function SpacesPage() {
   const spaceTypes = [...new Set(spaces.map(space => space.type))];
 
   return (
-    <div className="p-6 pt-20 lg:pt-6">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              Space Management
-            </h1>
-            <p className="mt-2 text-sm text-gray-600">
-              Monitor and manage facility spaces, rooms, and occupancy
-            </p>
-          </div>
+    <ContentArea maxWidth="7xl">
+      <VStack>
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+                Space Management
+              </h1>
+              <p className="mt-2 text-sm text-gray-600">
+                Monitor and manage facility spaces, rooms, and occupancy
+              </p>
+            </div>
           <div className="flex space-x-3">
             <button
               onClick={() => setSelectedView(selectedView === 'grid' ? 'list' : 'grid')}
@@ -507,6 +509,7 @@ export default function SpacesPage() {
           </p>
         </div>
       )}
-    </div>
+      </VStack>
+    </ContentArea>
   );
 }

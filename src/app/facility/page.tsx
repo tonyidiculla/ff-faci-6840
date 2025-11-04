@@ -103,10 +103,10 @@ export default function FacilityDashboard() {
   };
 
   return (
-    <ContentArea className="h-screen overflow-hidden" maxWidth="7xl">
-      <VStack className="h-full">
+    <ContentArea maxWidth="7xl">
+      <VStack>
         {/* Header */}
-        <div className="px-6 pt-6 pb-2 mb-8 shrink-0">
+        <div className="px-6 pt-6 pb-2 mb-8">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900">
             Facility Management Dashboard
           </h1>
@@ -124,7 +124,7 @@ export default function FacilityDashboard() {
           </div>
         </div>
         
-        <div className="px-6 overflow-y-auto flex-1">
+        <div className="px-6">
         {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <div className="bg-white overflow-hidden shadow rounded-lg">

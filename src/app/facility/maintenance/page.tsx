@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ContentArea, VStack } from '@/components/layout/PageLayout';
 import {
   CalendarIcon,
   PlusIcon,
@@ -266,18 +267,19 @@ export default function MaintenancePage() {
   };
 
   return (
-    <div className="p-6 pt-20 lg:pt-6">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              Maintenance Scheduling
-            </h1>
-            <p className="mt-2 text-sm text-gray-600">
-              Schedule and track preventive maintenance, inspections, and equipment servicing
-            </p>
-          </div>
+    <ContentArea maxWidth="7xl">
+      <VStack>
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+                Maintenance Scheduling
+              </h1>
+              <p className="mt-2 text-sm text-gray-600">
+                Schedule and track preventive maintenance, inspections, and equipment servicing
+              </p>
+            </div>
           <div className="flex space-x-3">
             <button
               onClick={() => setSelectedView(selectedView === 'calendar' ? 'list' : 'calendar')}
@@ -513,6 +515,7 @@ export default function MaintenancePage() {
           </div>
         </div>
       )}
-    </div>
+      </VStack>
+    </ContentArea>
   );
 }

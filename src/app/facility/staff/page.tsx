@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ContentArea, VStack } from '@/components/layout/PageLayout';
 import {
   UserGroupIcon,
   PlusIcon,
@@ -222,18 +223,19 @@ export default function StaffPage() {
   const departments = [...new Set(staff.map(person => person.department))];
 
   return (
-    <div className="p-6 pt-20 lg:pt-6">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              Staff Management
-            </h1>
-            <p className="mt-2 text-sm text-gray-600">
-              Manage facility staff, assignments, schedules, and performance
-            </p>
-          </div>
+    <ContentArea maxWidth="7xl">
+      <VStack>
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+                Staff Management
+              </h1>
+              <p className="mt-2 text-sm text-gray-600">
+                Manage facility staff, assignments, schedules, and performance
+              </p>
+            </div>
           <div className="flex space-x-3">
             <button
               onClick={() => setSelectedView(selectedView === 'grid' ? 'list' : 'grid')}
@@ -576,6 +578,7 @@ export default function StaffPage() {
           </p>
         </div>
       )}
-    </div>
+      </VStack>
+    </ContentArea>
   );
 }

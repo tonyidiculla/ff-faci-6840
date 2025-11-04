@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { ContentArea, VStack } from '@/components/layout/PageLayout';
 import {
   PlusIcon,
   FunnelIcon,
@@ -136,18 +137,19 @@ export default function WorkOrdersPage() {
   });
 
   return (
-    <div className="p-6 pt-20 lg:pt-6">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              Work Orders
-            </h1>
-            <p className="mt-2 text-sm text-gray-600">
-              Manage facility maintenance requests and work orders
-            </p>
-          </div>
+    <ContentArea maxWidth="7xl">
+      <VStack>
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+                Work Orders
+              </h1>
+              <p className="mt-2 text-sm text-gray-600">
+                Manage facility maintenance requests and work orders
+              </p>
+            </div>
           <Link
             href="/work-orders/new"
             className="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
@@ -365,17 +367,18 @@ export default function WorkOrdersPage() {
             </tbody>
           </table>
         </div>
-        
-        {filteredWorkOrders.length === 0 && (
-          <div className="text-center py-12">
-            <WrenchScrewdriverIcon className="mx-auto h-12 w-12 text-gray-400" />
-            <h3 className="mt-2 text-sm font-medium text-gray-900">No work orders found</h3>
-            <p className="mt-1 text-sm text-gray-500">
-              Try adjusting your search or filter criteria.
-            </p>
-          </div>
-        )}
       </div>
-    </div>
+        
+      {filteredWorkOrders.length === 0 && (
+        <div className="text-center py-12">
+          <WrenchScrewdriverIcon className="mx-auto h-12 w-12 text-gray-400" />
+          <h3 className="mt-2 text-sm font-medium text-gray-900">No work orders found</h3>
+          <p className="mt-1 text-sm text-gray-500">
+            Try adjusting your search or filter criteria.
+          </p>
+        </div>
+      )}
+      </VStack>
+    </ContentArea>
   );
 }

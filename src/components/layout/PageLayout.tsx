@@ -43,7 +43,7 @@ export const ContentArea: React.FC<ContentAreaProps> = ({
   return (
     <div className={cn(
       maxWidthClasses[maxWidth],
-      'mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full overflow-hidden',
+      'mx-auto px-4 sm:px-6 lg:px-8 py-8',
       className
     )}>
       {children}
@@ -151,7 +151,7 @@ export const VStack: React.FC<SpacingProps> = ({
   };
 
   return (
-    <div className={cn(spacingClasses[size], 'h-full flex flex-col', className)}>
+    <div className={cn(spacingClasses[size], className)}>
       {children}
     </div>
   );

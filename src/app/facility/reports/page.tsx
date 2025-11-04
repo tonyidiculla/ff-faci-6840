@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ContentArea, VStack } from '@/components/layout/PageLayout';
 import {
   ChartBarIcon,
   DocumentArrowDownIcon,
@@ -118,18 +119,19 @@ export default function ReportsPage() {
   };
 
   return (
-    <div className="p-6 pt-20 lg:pt-6">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-              Reports & Analytics
-            </h1>
-            <p className="mt-2 text-sm text-gray-600">
-              Analyze facility performance, costs, and operational metrics
-            </p>
-          </div>
+    <ContentArea maxWidth="7xl">
+      <VStack>
+        {/* Header */}
+        <div className="mb-8">
+          <div className="flex justify-between items-center">
+            <div>
+              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+                Reports & Analytics
+              </h1>
+              <p className="mt-2 text-sm text-gray-600">
+                Analyze facility performance, costs, and operational metrics
+              </p>
+            </div>
           <div className="flex space-x-3">
             <select
               className="border border-gray-300 rounded-md px-3 py-2 text-sm"
@@ -458,6 +460,7 @@ export default function ReportsPage() {
           </div>
         </div>
       </div>
-    </div>
+      </VStack>
+    </ContentArea>
   );
 }
